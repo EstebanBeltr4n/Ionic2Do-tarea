@@ -6,9 +6,14 @@
 
 <ion-header [translucent]="true">
   <ion-toolbar color="light">
-    <ion-title>
-      Tareas
-    </ion-title>
+    
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Tareas</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    
+
     <ion-buttons slot="end">
       <ion-button icon-left (click)="addItem()">
         <ion-icon name="agregar"></ion-icon> Agragar a la lista</ion-button>
@@ -24,12 +29,20 @@
       </ion-item>
       <ion-item-options side="end" (ionSwipe)="removeTask(slidingItem, task)">
         <ion-item-option color="secondary" (click)="markAsDone(slidingItem, task)">
-          <ion-icon slot="icon-only" name="checkmark"></ion-icon>
+          <ion-icon slot="icon-only" name="checkmark-outline"></ion-icon>
         </ion-item-option>
         <ion-item-option expandable color="danger" (click)="removeTask(slidingItem, task)">
-          <ion-icon slot="icon-only" name="trash"></ion-icon>
+          <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
         </ion-item-option>
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
 </ion-content>
+
+
+<ion-header [translucent]="true">
+  <ion-toolbar color="custom">
+    <ion-title class="ion-text-center">Lista actual</ion-title>
+  </ion-toolbar>
+</ion-header>
+
