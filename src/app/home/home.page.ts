@@ -7,6 +7,8 @@ import { DocumentData, CollectionReference, collection, getDocs, getFirestore } 
 import { getDatabase, onValue, ref, push, set, remove, onChildAdded, onChildChanged, onChildRemoved } from "firebase/database";
 import { Title } from '@angular/platform-browser';
 
+
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyBaVvnInCFoIjCsqa1C-5HgeXpJD3opeyY",
@@ -102,8 +104,13 @@ export class HomePage {
     if (index > -1) {
       this.tasks.splice(index, 1);
     }
-    setTimeout( () => { itemSliding.close() }, 1 );
+    const taskRef = ref(this.db, `tasks/${task.id}`);
+    remove(taskRef); // Remove the task from Firebase
+    setTimeout(() => {
+      itemSliding.close();
+    }, 1);
   }
+  
 
 }
 
