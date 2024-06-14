@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NgFor, NgClass } from '@angular/common';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonIcon, IonButtons, IonList, IonItem, IonLabel, IonItemSliding, IonItemOptions, IonItemOption } from '@ionic/angular/standalone';
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonIcon, IonButtons, IonList, IonItem, IonLabel, IonItemSliding, IonItemOptions, IonItemOption, IonGrid, IonRow, IonCol } from '@ionic/angular/standalone';
 import { Task } from './task';
 import { initializeApp } from "firebase/app";
 import { DocumentData, CollectionReference, collection, getDocs, getFirestore } from "firebase/firestore/lite";
@@ -23,7 +23,7 @@ const firebaseConfig = {
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [NgClass, IonItemOption, IonItemOptions, IonItemSliding, NgFor, IonLabel, IonItem, IonList, IonButtons, IonIcon, IonButton, IonHeader, IonToolbar, IonTitle, IonContent],
+  imports: [IonCol, IonRow, IonGrid, NgClass, IonItemOption, IonItemOptions, IonItemSliding, NgFor, IonLabel, IonItem, IonList, IonButtons, IonIcon, IonButton, IonHeader, IonToolbar, IonTitle, IonContent],
 })
 export class HomePage {
 
@@ -76,7 +76,7 @@ export class HomePage {
 
   addItem() {
     let theNewTask: string|null;
-    theNewTask = prompt("New Task", '');
+    theNewTask = prompt("Nueva tarea", '');
     if (theNewTask !== '' && theNewTask != null) {
       const taskCol = ref(this.db, 'tasks');
       const newTask = push(taskCol);

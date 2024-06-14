@@ -1,13 +1,17 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="primary">
+  <ion-toolbar color="custom">
+    <ion-title class="ion-text-center">Adminstrador de tareas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-header [translucent]="true">
+  <ion-toolbar color="light">
     <ion-title>
-      Tasks
+      Tareas
     </ion-title>
     <ion-buttons slot="end">
       <ion-button icon-left (click)="addItem()">
-        <ion-icon name="add"></ion-icon>
-        Add Item
-      </ion-button>
+        <ion-icon name="agregar"></ion-icon> Agragar a la lista</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
